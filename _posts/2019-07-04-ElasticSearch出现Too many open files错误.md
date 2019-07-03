@@ -34,7 +34,7 @@ at java.lang.Thread.run(Thread.java:748)
 ```
 
 #### 方法二
-1. 使用ps -ef | grep java  (java代表你程序，查看你程序进程) 查看你的进程ID，记录ID号，假设进程ID为12
-2. 使用：lsof -p 12 | wc -l    查看当前进程id为12的 文件操作状况，执行该命令出现文件使用情况为 1052
-3. 使用命令：ulimit -a  查看每个用户允许打开的最大文件数，发现系统默认的是open files (-n) 1024，问题就出现在这里
-4. 然后执行：ulimit -n 4096 将open files (-n) 1024 设置成open files (-n) 4096，这样就增大了用户允许打开的最大文件数
+1. 使用命令 `ps -ef | grep java`  (java代表你程序，查看你程序进程) 查看你的进程ID，记录ID号，假设进程ID为12
+2. 使用命令 `lsof -p 12 | wc -l`    查看当前进程id为12的 文件操作状况，执行该命令出现文件使用情况为 1052
+3. 使用命令 `ulimit -a`  查看每个用户允许打开的最大文件数，发现系统默认的是open files (-n) 1024，问题就出现在这里
+4. 使用命令 `ulimit -n` 4096 将open files (-n) 1024 设置成open files (-n) 4096，这样就增大了用户允许打开的最大文件数
